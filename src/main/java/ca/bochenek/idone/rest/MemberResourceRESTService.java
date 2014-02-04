@@ -15,9 +15,10 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import ca.bochenek.idone.entity.Done;
+import ca.bochenek.idone.data.DoneListProducer;
+import ca.bochenek.idone.entity.DoneItem;
 
-@Path("/members")
+@Path("/items")
 @RequestScoped
 public class MemberResourceRESTService {
     
@@ -28,19 +29,19 @@ public class MemberResourceRESTService {
     private Validator validator;
 
     @Inject
-//    private MemberRepository repository;
+    private DoneListProducer repository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Done> listAll() {
-        return new ArrayList<Done>();  //repository.findAllOrderedByName();
+    public List<DoneItem> listAll() {
+        return repository.loadAll();
     }
 
     @GET
     @Path("/{id:[0-9][0-9]*}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Done lookupMemberById(@PathParam("id") long id) {
-        Done member = new Done(); //repository.findById(id);
+    public DoneItem lookupMemberById(@PathParam("id") long id) {
+        DoneItem member = repository.findById(id);
         if (member == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }

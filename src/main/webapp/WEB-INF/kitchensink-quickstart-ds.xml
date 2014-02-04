@@ -13,7 +13,7 @@
     <!-- The datasource is bound into JNDI at this location. We reference 
         this in META-INF/persistence.xml -->
    <datasource jndi-name="java:jboss/datasources/IDoneDS" pool-name="kitchensink-quickstart" >
-      <connection-url>jdbc:mysql://localhost:3306/bochenekblog</connection-url>
+      <connection-url>jdbc:mysql://localhost:3306/test</connection-url>
          <driver>com.mysql</driver>
       <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
       <pool>
