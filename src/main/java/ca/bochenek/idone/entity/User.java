@@ -16,23 +16,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @SuppressWarnings("serial")
 @Entity
 @XmlRootElement
-@Table(name = "item")
-public class DoneItem implements Serializable {
+@Table(name = "user")
+public class User implements Serializable {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
 	@Lob
-	@Column(name = "donetext")
-    private String text;
-
-	@Column(name = "owner")
-	private Long owner;
-
-    @Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "donedate")
-	private Date date;
+    private String settings;
 
     @Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "createdate")
@@ -41,17 +33,9 @@ public class DoneItem implements Serializable {
 	@Column(name = "deleted")
     private boolean deleted;
 
-	@Id
-	private Long category;
-
-	public Long getCategory() {
-		return category;
-	}
-
-	public void setCategory(Long category) {
-		this.category = category;
-	}
-
+	@Column(name = "username")
+	private String username;
+	
 	public Long getId() {
 		return id;
 	}
@@ -60,28 +44,12 @@ public class DoneItem implements Serializable {
 		this.id = id;
 	}
 
-	public String getText() {
-		return text;
+	public String getSettings() {
+		return settings;
 	}
 
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public Long getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Long owner) {
-		this.owner = owner;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
+	public void setSettings(String settings) {
+		this.settings = settings;
 	}
 
 	public Date getCreateDate() {
@@ -99,5 +67,25 @@ public class DoneItem implements Serializable {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Column(name = "password")
+	private String password;
+
 
 }
