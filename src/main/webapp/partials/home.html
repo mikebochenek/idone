@@ -5,10 +5,10 @@
     <em ng-show="dones.length == 0">No registered members.</em>
     
     <table ng-hide="dones.length == 0" class="simpletablestyle" 
-    	border=1 cellpadding=3 cellspacing=1 rules=rows frame=hsides>
+    	border=0 cellpadding=3 cellspacing=1 rules=rows frame=hsides>
         <thead>
             <tr>
-                <th>Content</th>
+                <th>Done today</th>
             </tr>
         </thead>
         <!-- The table is built using the AngularJS repeat function, iterating over the members variable, and ordering by the property specified in the orderBy variable -->
@@ -18,7 +18,6 @@
     </table>
     <div>
         <!-- The table has a button to manually refresh the values, in case, for example, someone else adds a member -->
-        <input type="button" ng-click="refresh()" name="refresh"
-            id="refresh" value="Refresh" />
+        <!-- input type="button" ng-click="refresh()" name="refresh" id="refresh" value="Refresh"  -->
     </div>
 </div>
