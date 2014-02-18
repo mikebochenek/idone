@@ -13,7 +13,7 @@
         </thead>
         <!-- The table is built using the AngularJS repeat function, iterating over the members variable, and ordering by the property specified in the orderBy variable -->
         <tr ng-repeat="done in dones | orderBy:id">
-            <td><div ng-bind-html-unsafe="done.text"></div></td>
+            <td><i class="icon-check"></i><div ng-bind-html-unsafe="done.text"></div></td>
         </tr>
     </table>
     <div>
