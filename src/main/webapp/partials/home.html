@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This is a partial, and is templated by AngularJS -->
-<div>
-    <h1>Welcome!</h1>
-
+<div style="font-family: Arial, 'MS Trebuchet', sans-serif;">
+    <!-- If there are no members registered, instead of showing the table, we show a simple message. -->
+    <em ng-show="dones.length == 0">No registered members.</em>
+    
+    <table ng-hide="dones.length == 0" class="simpletablestyle" 
+    	border=1 cellpadding=3 cellspacing=1 rules=rows frame=hsides>
+        <thead>
+            <tr>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <!-- The table is built using the AngularJS repeat function, iterating over the members variable, and ordering by the property specified in the orderBy variable -->
+        <tr ng-repeat="done in dones | orderBy:id">
+            <td><div ng-bind-html-unsafe="done.text"></div></td>
+        </tr>
+    </table>
     <div>
         <!-- The table has a button to manually refresh the values, in case, for example, someone else adds a member -->
         <input type="button" ng-click="refresh()" name="refresh"
