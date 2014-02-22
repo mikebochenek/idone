@@ -167,6 +167,13 @@
             <scope>provided</scope>
         </dependency>
 
+		<!--  https://code.google.com/p/openid4java/ -->
+		<dependency>
+		    <groupId>org.openid4java</groupId>
+		    <artifactId>openid4java</artifactId>
+		    <version>0.9.7</version>
+		</dependency>
+
         <!-- Needed for running tests (you may also use TestNG) -->
         <dependency>
             <groupId>junit</groupId>
