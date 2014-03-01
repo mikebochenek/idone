@@ -11,6 +11,10 @@
                 <th>Done today</th>
             </tr>
         </thead>
+        
+<div style="margin-left: 50px; margin-top: 40px; height: 60px;"><form action="/idone/loginServlet?identifier=https://www.google.com/accounts/o8/id" method="post"> <input class="google openid_large_btn" style="background: #fff url(/resources/images/login/openid-logos.png?v=3); background-position: -1px -1px;" type="image" value=" " /></form>
+<form action="/idone/loginServlet?identifier=https://me.yahoo.com" method="post"><input class="google openid_large_btn" style="background: #fff url(/resources/images/login/openid-logos.png?v=3); background-position: -1px -63px;" type="image" value=" " /> </form></div>
+        
         <!-- The table is built using the AngularJS repeat function, iterating over the members variable, and ordering by the property specified in the orderBy variable -->
         <tr ng-repeat="done in dones | orderBy:id">
             <td><i class="icon-check"></i><div ng-bind-html-unsafe="done.text"></div></td>
