@@ -14,7 +14,15 @@
 		<servlet-name>loginOpenIdServlet</servlet-name>
  		<servlet-class>ca.bochenek.idone.openid.LoginServlet</servlet-class>
 	</servlet>
- 
+    <servlet>
+		<servlet-name>Consumer Servlet</servlet-name>
+ 		<servlet-class>ca.bochenek.idone.openid.ConsumerServlet</servlet-class>
+	</servlet>
+    <servlet-mapping>
+                <servlet-name>Consumer Servlet</servlet-name>
+                <url-pattern>/consumer</url-pattern>
+    </servlet-mapping>
+         
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.faces</url-pattern>

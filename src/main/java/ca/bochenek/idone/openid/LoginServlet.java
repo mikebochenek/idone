@@ -85,7 +85,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         {
             // configure the return_to URL where your application will receive
             // the authentication responses from the OpenID provider
-            String returnToUrl = "http://example.com/openid";
+            String returnToUrl = "http://localhost/idone/return.jsp";
 
             // --- Forward proxy setup (only if needed) ---
             // ProxyProperties proxyProps = new ProxyProperties();
@@ -130,7 +130,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 // Option 2: HTML FORM Redirection (Allows payloads >2048 bytes)
 
                 RequestDispatcher dispatcher =
-                		httpReq.getSession().getServletContext().getRequestDispatcher("formredirection.jsp");
+                		httpReq.getSession().getServletContext().getRequestDispatcher("/formredirection.jsp");
                 httpReq.setAttribute("parameterMap", authReq.getParameterMap());
                 httpReq.setAttribute("destinationUrl", authReq.getDestinationUrl(false));
                 dispatcher.forward(httpReq, httpResp);
