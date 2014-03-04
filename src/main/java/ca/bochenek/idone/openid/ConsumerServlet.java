@@ -160,7 +160,7 @@ public class ConsumerServlet extends javax.servlet.http.HttpServlet {
 
 				RequestDispatcher dispatcher = getServletContext()
 						.getRequestDispatcher("/formredirection.jsp");
-				httpReq.setAttribute("prameterMap", httpReq.getParameterMap());
+				httpReq.setAttribute("parameterMap", httpReq.getParameterMap());
 				httpReq.setAttribute("message", authReq);
 				// httpReq.setAttribute("destinationUrl", httpResp
 				// .getDestinationUrl(false));
@@ -231,6 +231,9 @@ public class ConsumerServlet extends javax.servlet.http.HttpServlet {
 				fetch.addAttribute(alias, typeUri, required, count);
 			}
 		}
+		
+		fetch.addAttribute("email", "http://axschema.org/contact/email", true, 1);
+		
 		authReq.addExtension(fetch);
 	}
 
@@ -312,8 +315,9 @@ public class ConsumerServlet extends javax.servlet.http.HttpServlet {
 			FetchResponse fetchResp = (FetchResponse) authSuccess
 					.getExtension(AxMessage.OPENID_NS_AX);
 
-			// List emails = fetchResp.getAttributeValues("email");
-			// String email = (String) emails.get(0);
+			List emails = fetchResp.getAttributeValues("email");
+			String email = (String) emails.get(0);
+			System.out.println("EMAIL: " + email);
 
 			List aliases = fetchResp.getAttributeAliases();
 			Map attributes = new LinkedHashMap();
