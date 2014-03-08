@@ -8,7 +8,18 @@ angular.module('kitchensink', ['donesService']).config(
             when('/home', {
                 templateUrl : 'partials/home.html',
                 controller : DonesCtrl
-            // Add a default route
+            }).
+            when('/about', {
+                templateUrl : 'partials/about.html',
+                controller : DonesCtrl
+            }).
+            when('/settings', {
+                templateUrl : 'partials/settings.html',
+                controller : DonesCtrl
+            }).
+            when('/signin', {
+                templateUrl : 'partials/signin.html',
+                controller : DonesCtrl
             }).otherwise({
                 redirectTo : '/home'
             });
