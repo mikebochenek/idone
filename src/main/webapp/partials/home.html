@@ -6,25 +6,28 @@
     
     <table ng-hide="dones.length == 0" class="simpletablestyle" 
     	border=0 cellpadding=3 cellspacing=1 rules=rows frame=hsides>
-        <thead>
-            <tr>
-                <th>Done today</th>
-            </tr>
-        </thead>
+
+        <h1><span class="glyphicon glyphicon-step-backward"></span> Thursday 27.02.2014 <span class="glyphicon glyphicon-step-forward"></span></h1>
+        <p class="lead">I've completed the following tasks</p>
         
-  <div>
-    <form action="/idone/loginServlet?identifier=https://www.google.com/accounts/o8/id" method="post"> 
-      <input class="google openid_large_btn" style="background: #fff url(/resources/images/login/openid-logos.png?v=3); background-position: -1px -1px;" type="image" value=" " />
-    </form>
-    <form action="/idone/loginServlet?identifier=https://me.yahoo.com" method="post">
-      <input class="google openid_large_btn" style="background: #fff url(/resources/images/login/openid-logos.png?v=3); background-position: -1px -63px;" type="image" value=" " /> 
-    </form>
-  </div>
+        <div class="row">
+         <div class="col-sm-3" ></div>
+         <div class="col-sm-6" >
+          
+        <ul class="list-group" style="text-align: left;">
+            <li class="list-group-item" ng-repeat="done in dones | orderBy:id"><img src="img/check_box.png" /> {{ done.text }}</li>
+        </ul>
+          
+          
+           <button type="button" class="btn btn-primary">Add new item</button>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <button type="button" class="btn btn-primary">Save</button>
+           <button type="button" class="btn btn-primary">Finalize & Submit</button>
+         </div><!-- /.col-sm-6 -->
+         <div class="col-sm-3" ></div>
+        </div>
+
         
-        <!-- The table is built using the AngularJS repeat function, iterating over the members variable, and ordering by the property specified in the orderBy variable -->
-        <tr ng-repeat="done in dones | orderBy:id">
-            <td><i class="icon-check"></i><div ng-bind-html-unsafe="done.text"></div></td>
-        </tr>
     </table>
     <div>
         <!-- The table has a button to manually refresh the values, in case, for example, someone else adds a member -->
