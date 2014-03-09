@@ -30,12 +30,53 @@ public class User implements Serializable {
 	@Column(name = "createdate")
 	private Date createDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "lastlogindate")
+	private Date lastLoginDate;
+
 	@Column(name = "deleted")
     private boolean deleted;
 
 	@Column(name = "username")
 	private String username;
 	
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "openidtoken")
+	private String openidtoken;
+
+	@Column(name = "type")
+	private String type;
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getOpenidtoken() {
+		return openidtoken;
+	}
+
+	public void setOpenidtoken(String openidtoken) {
+		this.openidtoken = openidtoken;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -84,8 +125,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	@Column(name = "password")
-	private String password;
+	public Date getLastLoginDate() {
+		return lastLoginDate;
+	}
 
-
+	public void setLastLoginDate(Date lastLoginDate) {
+		this.lastLoginDate = lastLoginDate;
+	}
 }
