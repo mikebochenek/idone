@@ -1,6 +1,7 @@
 package ca.bochenek.idone.entity;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -43,6 +44,28 @@ public class DoneItem implements Serializable {
 
 	@Id
 	private Long category;
+
+	@Id
+	private Long doneDay;
+
+	
+	public Long currentDay() {
+		Calendar now = Calendar.getInstance();
+		return toDay(now);
+	}
+	
+	public Long toDay(Calendar c) {
+		return 1L * c.get(Calendar.YEAR) * 1000 + c.get(Calendar.DAY_OF_YEAR);
+	}
+	
+
+	public Long getDoneDay() {
+		return doneDay;
+	}
+
+	public void setDoneDay(Long doneDay) {
+		this.doneDay = doneDay;
+	}
 
 	public Long getCategory() {
 		return category;

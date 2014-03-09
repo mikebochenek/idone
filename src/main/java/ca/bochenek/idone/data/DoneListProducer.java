@@ -32,9 +32,9 @@ public class DoneListProducer {
     	item.setDate(doneDate);
     	item.setCategory(category);
     	item.setOwner(1L); //TODO
+    	item.setDoneDay(item.currentDay());
     	return update(item);
     }
-
     
     public DoneItem update(DoneItem item) {
     	return em.merge(item);
