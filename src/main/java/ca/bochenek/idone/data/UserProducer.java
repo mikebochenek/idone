@@ -4,6 +4,9 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -11,7 +14,7 @@ import javax.persistence.Query;
 
 import ca.bochenek.idone.entity.User;
 
-@RequestScoped
+@Stateless
 public class UserProducer {
 
 	@Inject
@@ -19,8 +22,8 @@ public class UserProducer {
 
 	/** this is so bad that I can't believe that I am allowing myself to do this */
 	public User login(String username, String password) {
-		Query query = em.createQuery("select u from User u where username = :username");
-		query.setParameter(0, username);
+		Query query = em.createQuery("select u from User u where username = :u");
+		query.setParameter("u", username);
 		User user = (User) query.getSingleResult();
 
 		if (user != null && user.getPassword() != null
@@ -32,8 +35,8 @@ public class UserProducer {
 	}
 	
 	public boolean isUsernameAlreadyUsed(String username) {
-		Query query = em.createQuery("select u from User u where username = :username");
-		query.setParameter(0, username);
+		Query query = em.createQuery("select u from User u where username = :u");
+		query.setParameter("u", username);
 		User user = (User) query.getSingleResult();
 		return user != null;
 	}
