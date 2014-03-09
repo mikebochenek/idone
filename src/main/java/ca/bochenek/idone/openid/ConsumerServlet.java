@@ -318,6 +318,8 @@ public class ConsumerServlet extends javax.servlet.http.HttpServlet {
 			List emails = fetchResp.getAttributeValues("email");
 			String email = (String) emails.get(0);
 			System.out.println("EMAIL: " + email);
+			
+			//here we would load user into session?
 
 			List aliases = fetchResp.getAttributeAliases();
 			Map attributes = new LinkedHashMap();

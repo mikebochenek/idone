@@ -18,10 +18,19 @@
 		<servlet-name>Consumer Servlet</servlet-name>
  		<servlet-class>ca.bochenek.idone.openid.ConsumerServlet</servlet-class>
 	</servlet>
+    <servlet>
+		<servlet-name>Plain Login Servlet</servlet-name>
+ 		<servlet-class>ca.bochenek.idone.openid.PlainLoginServlet</servlet-class>
+	</servlet>
     <servlet-mapping>
-                <servlet-name>Consumer Servlet</servlet-name>
-                <url-pattern>/consumer</url-pattern>
+        <servlet-name>Consumer Servlet</servlet-name>
+        <url-pattern>/consumer</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Plain Login Servlet</servlet-name>
+        <url-pattern>/plainlogin</url-pattern>
+    </servlet-mapping>
+         
          
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
