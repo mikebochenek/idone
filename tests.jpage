@@ -1,0 +1,5 @@
+java.util.Calendar c = java.util.Calendar.getInstance();
+c.set(2014, 2, 5);
+Long ans =  1L * c.get(java.util.Calendar.YEAR) * 1000 + c.get(java.util.Calendar.DAY_OF_YEAR);
+System.out.println(ans)
+	
