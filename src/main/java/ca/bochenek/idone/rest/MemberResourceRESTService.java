@@ -38,10 +38,11 @@ public class MemberResourceRESTService {
     }
 
     @GET
-    @Path("/{id:[0-9][0-9]*}")
+    @Path("/doneday/{id:[0-9][0-9]*}")
     @Produces(MediaType.APPLICATION_JSON)
-    public DoneItem lookupMemberById(@PathParam("id") long id) {
-        DoneItem member = repository.findById(id);
+    public List<DoneItem> lookupByDoneDay(@PathParam("id") long id) {
+        List<DoneItem> member = repository.findByDoneDay(id, 1L); //repository.loadAll().get(0);
+        //repository.findById(id);  // java.lang.IllegalArgumentException: Provided id of the wrong type for class ca.bochenek.idone.entity.DoneItem. Expected: class ca.bochenek.idone.entity.DoneItem, got class java.lang.Long
         if (member == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }

@@ -40,11 +40,11 @@ public class DoneListProducer {
     	return em.merge(item);
     }
     
-    public List<DoneItem> findByDate(Date date) {
-		String dateStr = " where donedate between " + "-01-01' and '" + "-12-31'"; //TODO
-
-    	Query query = em.createQuery("select d from DoneItem d " + dateStr);
+    public List<DoneItem> findByDoneDay(long doneDay, long owner) {
+		//String dateStr = " where donedate between " + "-01-01' and '" + "-12-31'"; //this is bad, and also prone to SQL injection
+    	Query query = em.createQuery("select d from DoneItem d where d.doneDay = :doneDayParam and d.owner = :ownerParam ");
+    	query.setParameter ("doneDayParam", doneDay);
+    	query.setParameter ("ownerParam", 1L); //TODO extract from session?
     	return query.getResultList();
     }
-
 }
